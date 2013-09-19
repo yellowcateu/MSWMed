@@ -57,20 +57,10 @@ public class MswmedUI extends UI {
 		
 		Button but_author_send = new Button("Zaloguj");
 		fl.addComponent(but_author_send);
-		
-		but_author_send.addClickListener((ClickListener) this);
 
 		layout.addComponent(fl);
 		layout.setComponentAlignment(fl, Alignment.MIDDLE_CENTER);
 		
-	}
-	
-	@SuppressWarnings("unused")
-	private boolean btnLogInClicked(ClickEvent e){
-		
-		logLabel.setCaption("Login Clicked!");
-		return false;
-	}
-	
+	}	
 
 }
