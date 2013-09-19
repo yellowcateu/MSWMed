@@ -2,6 +2,7 @@ package com.example.mswmed;
 
 import java.io.File;
 
+import com.vaadin.annotations.Title;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinService;
@@ -20,6 +21,7 @@ import com.vaadin.ui.VerticalLayout;
 /**
  * Main UI class
  */
+@Title("MSWMed")
 @SuppressWarnings("serial")
 public class MswmedUI extends UI {
 	
@@ -27,6 +29,7 @@ public class MswmedUI extends UI {
 	protected void init(VaadinRequest request) {
 		buildLoginForm();
 	}
+	
 	
 	private void buildLoginForm(){
 		VerticalLayout layout = new VerticalLayout();
@@ -49,6 +52,8 @@ public class MswmedUI extends UI {
 		TextField tf = new TextField("U¿ytkownik");
 		tf.setWidth("200");
 		fl.addComponent(tf);
+		
+		
 		
 		tf.setRequired(true);
 		tf.setRequiredError("Pole nie mo¿e byæ puste.");
