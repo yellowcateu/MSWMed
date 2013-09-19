@@ -13,6 +13,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
@@ -70,7 +71,13 @@ public class MswmedUI extends UI {
 		
 		fl.addComponent(button);
 		hl.addComponent(fl);
+		Label yclabel = new Label("Created by: yellowcat");
+		fl.addComponent(yclabel);
+		
+		hl.setComponentAlignment(fl,Alignment.BOTTOM_RIGHT);
+		
 		layout.addComponent(hl);
+		
 		layout.setComponentAlignment(hl, Alignment.MIDDLE_CENTER);
 		
 	}	
