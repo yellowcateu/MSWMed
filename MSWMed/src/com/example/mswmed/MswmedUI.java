@@ -72,6 +72,7 @@ public class MswmedUI extends UI {
 		fl.addComponent(button);
 		hl.addComponent(fl);
 		Label yclabel = new Label("Created by: yellowcat");
+		
 		fl.addComponent(yclabel);
 		
 		hl.setComponentAlignment(fl,Alignment.BOTTOM_RIGHT);
