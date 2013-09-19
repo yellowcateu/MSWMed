@@ -6,6 +6,8 @@ import com.vaadin.ui.UI;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
@@ -19,6 +21,8 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 public class MswmedUI extends UI {
 
+	private Label logLabel;
+	
 	@Override
 	protected void init(VaadinRequest request) {
 		buildLoginForm();
@@ -33,7 +37,8 @@ public class MswmedUI extends UI {
 		FormLayout fl = new FormLayout(); 
 		fl.setSizeUndefined();
 		
-		Label logLabel = new Label("MSWMed");
+		logLabel = new Label("MSWMed");
+		
 		logLabel.setIcon(new ThemeResource("../../../WebContent/WEB-INF/images/mswmed-logo.png"));
 		fl.addComponent(logLabel);
 		
@@ -53,10 +58,18 @@ public class MswmedUI extends UI {
 		Button but_author_send = new Button("Zaloguj");
 		fl.addComponent(but_author_send);
 		
+		but_author_send.addClickListener((ClickListener) this);
 
 		layout.addComponent(fl);
 		layout.setComponentAlignment(fl, Alignment.MIDDLE_CENTER);
 		
+	}
+	
+	@SuppressWarnings("unused")
+	private boolean btnLogInClicked(ClickEvent e){
+		
+		logLabel.setCaption("Login Clicked!");
+		return false;
 	}
 	
 
