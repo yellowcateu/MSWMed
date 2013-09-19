@@ -1,15 +1,17 @@
 package com.example.mswmed;
 
-import com.vaadin.server.ThemeResource;
+import java.io.File;
+
+import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinService;
 import com.vaadin.ui.UI;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.Label;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Image;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
@@ -20,8 +22,6 @@ import com.vaadin.ui.VerticalLayout;
  */
 @SuppressWarnings("serial")
 public class MswmedUI extends UI {
-
-	private Label logLabel;
 	
 	@Override
 	protected void init(VaadinRequest request) {
@@ -29,18 +29,22 @@ public class MswmedUI extends UI {
 	}
 	
 	private void buildLoginForm(){
-		//setMainWindow(new Window("Address Book Demo application"));
 		VerticalLayout layout = new VerticalLayout();
 		setContent(layout);
 		layout.setSizeFull();
 		
+		HorizontalLayout hl = new HorizontalLayout();
+		hl.setSizeUndefined();
+		
 		FormLayout fl = new FormLayout(); 
 		fl.setSizeUndefined();
-		
-		logLabel = new Label("MSWMed");
-		
-		logLabel.setIcon(new ThemeResource("../../../WebContent/WEB-INF/images/mswmed-logo.png"));
-		fl.addComponent(logLabel);
+
+		String basepath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
+
+		FileResource resource = new FileResource(new File(basepath +"/WEB-INF/images/mswmed-logo.png"));
+
+		Image image = new Image("", resource);
+		hl.addComponent(image);
 		
 		TextField tf = new TextField("U¿ytkownik");
 		tf.setWidth("200");
@@ -55,11 +59,14 @@ public class MswmedUI extends UI {
 		pf1.setWidth("200");
 		fl.addComponent(pf1);
 		
-		Button but_author_send = new Button("Zaloguj");
-		fl.addComponent(but_author_send);
+		Button button = new Button("Zaloguj");
 
-		layout.addComponent(fl);
-		layout.setComponentAlignment(fl, Alignment.MIDDLE_CENTER);
+		//button.addClickListener((ClickListener) this);
+		
+		fl.addComponent(button);
+		hl.addComponent(fl);
+		layout.addComponent(hl);
+		layout.setComponentAlignment(hl, Alignment.MIDDLE_CENTER);
 		
 	}	
 
