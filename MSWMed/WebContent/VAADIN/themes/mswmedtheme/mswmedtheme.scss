@@ -9,7 +9,7 @@
   @include reindeer;
 
   /* Insert your theme rules here */
-  body {background:#fff url("layouts/images/background.jpg") no-repeat !important;}
+  .v-generated-body {background:#fff !important url("./images/background.jpg") no-repeat !important;}
   .link-author {font-size:11px; color:#e4e4e4;}
   
 }
