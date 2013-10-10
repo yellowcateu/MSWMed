@@ -54,13 +54,13 @@ public class MswmedUI extends UI {
         panel.setContent(sample);
         // Create components and bind them to the location tags
         // in the custom layout.
-        final TextField username = new TextField();
+        final TextField username = new TextField("Username");
         username.setWidth("250");
         username.setRequired(true);
         username.setRequiredError("Pole nie moze byæ puste");
         sample.addComponent(username, "username");
 
-        final PasswordField password = new PasswordField();
+        final PasswordField password = new PasswordField("Password");
         password.setWidth("250");
         password.setRequired(true);
         password.setRequiredError("Pole nie moze byæ puste");
