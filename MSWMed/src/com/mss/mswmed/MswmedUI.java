@@ -30,7 +30,7 @@ import com.vaadin.ui.VerticalLayout;
  * Main UI class
  */
 @Theme("mswmedtheme")
-@Title("MSWMed")
+@Title("MSWMed by Medical Systems Solution")
 @SuppressWarnings("serial")
 public class MswmedUI extends UI {
 	
