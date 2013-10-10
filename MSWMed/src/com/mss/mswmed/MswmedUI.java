@@ -1,7 +1,8 @@
-package com.example.mswmed;
+package com.mss.mswmed;
 
 import java.io.File;
 
+import com.google.debugging.sourcemap.dev.protobuf.DescriptorProtos.FieldDescriptorProto.Type;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.server.FileResource;
@@ -11,11 +12,14 @@ import com.vaadin.ui.UI;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
@@ -32,59 +36,8 @@ public class MswmedUI extends UI {
 	
 	@Override
 	protected void init(VaadinRequest request) {
-		//buildLoginForm();
 		buildCustomForm();
 	}
-	
-	
-	private void buildLoginForm(){
-		VerticalLayout layout = new VerticalLayout();
-		setContent(layout);
-		layout.setSizeFull();
-		
-		HorizontalLayout hl = new HorizontalLayout();
-		hl.setSizeUndefined();
-		
-		FormLayout fl = new FormLayout(); 
-		fl.setSizeUndefined();
-
-		String basepath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
-
-		FileResource resource = new FileResource(new File(basepath +"/WEB-INF/images/mswmed-logo.png"));
-
-		Image image = new Image("", resource);
-		hl.addComponent(image);
-		
-		TextField tf = new TextField("U¿ytkownik");
-		tf.setWidth("200");
-		fl.addComponent(tf);
-		
-		
-		
-		tf.setRequired(true);
-		tf.setRequiredError("Pole nie mo¿e byæ puste.");
-
-		PasswordField pf1 = new PasswordField("Has³o");
-		pf1.setRequired(true);
-		pf1.setRequiredError("Pole nie mo¿e byæ puste.");
-		pf1.setWidth("200");
-		fl.addComponent(pf1);
-		
-		Button button = new Button("Zaloguj");
-		
-		fl.addComponent(button);
-		hl.addComponent(fl);
-		Label yclabel = new Label("Created by: yellowcat");
-		
-		fl.addComponent(yclabel);
-		
-		hl.setComponentAlignment(fl,Alignment.BOTTOM_RIGHT);
-		
-		layout.addComponent(hl);
-		
-		layout.setComponentAlignment(hl, Alignment.MIDDLE_CENTER);
-		
-	}	
 	
 	private void buildCustomForm(){
 		
@@ -103,13 +56,24 @@ public class MswmedUI extends UI {
         // in the custom layout.
         final TextField username = new TextField();
         username.setWidth("250");
+        username.setRequired(true);
+        username.setRequiredError("Pole nie moze byæ puste");
         sample.addComponent(username, "username");
 
         final PasswordField password = new PasswordField();
         password.setWidth("250");
+        password.setRequired(true);
+        password.setRequiredError("Pole nie moze byæ puste");
         sample.addComponent(password, "password");
 
-        final Button ok = new Button("Login");
+        Button ok = new Button("Login");
+        
+        ok.addClickListener(new ClickListener() {
+        	public void buttonClick(ClickEvent event) {
+        	Notification.show("Login user " + username.getValue(), com.vaadin.ui.Notification.Type.WARNING_MESSAGE);
+        	}
+        	});
+        
         sample.addComponent(ok, "okbutton");
         
         layout.addComponent(panel);

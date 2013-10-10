@@ -1,4 +1,4 @@
-package com.example.mswmed;
+package com.mss.mswmed;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;

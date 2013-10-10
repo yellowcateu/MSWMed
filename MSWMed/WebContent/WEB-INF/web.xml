@@ -16,7 +16,7 @@
    <description>
 			Vaadin UI class to use</description>
    <param-name>UI</param-name>
-   <param-value>com.example.mswmed.MswmedUI</param-value>
+   <param-value>com.mss.mswmed.MswmedUI</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>
