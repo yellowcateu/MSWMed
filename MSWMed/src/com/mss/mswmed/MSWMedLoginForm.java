@@ -47,7 +47,13 @@ public class MSWMedLoginForm extends CustomLayout{
 			private static final long serialVersionUID = 1L;
 
 			public void buttonClick(ClickEvent event) {
-        	Notification.show("Login user " + username.getValue(), com.vaadin.ui.Notification.Type.WARNING_MESSAGE);
+				
+				if (username.getValue()==null){
+					Notification.show("Pole nie moze byæ puste!", com.vaadin.ui.Notification.Type.ERROR_MESSAGE);
+				}else{
+					Notification.show("Login user " + username.getValue(), com.vaadin.ui.Notification.Type.WARNING_MESSAGE);
+				}
+        	
         	}
         	});
         
