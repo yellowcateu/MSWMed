@@ -48,7 +48,7 @@ public class MSWMedLoginForm extends CustomLayout{
 
 			public void buttonClick(ClickEvent event) {
 				
-				if (username.getValue()==null){
+				if (username.getValue().isEmpty()){
 					Notification.show("Pole nie moze byæ puste!", com.vaadin.ui.Notification.Type.ERROR_MESSAGE);
 				}else{
 					Notification.show("Login user " + username.getValue(), com.vaadin.ui.Notification.Type.WARNING_MESSAGE);
