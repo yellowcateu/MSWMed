@@ -1,13 +1,8 @@
 package com.mss.mswmed;
 
-import java.io.File;
-
-import com.google.debugging.sourcemap.dev.protobuf.DescriptorProtos.FieldDescriptorProto.Type;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
-import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinService;
 import com.vaadin.ui.UI;
 
 import com.vaadin.ui.Alignment;
@@ -15,10 +10,6 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.CustomLayout;
-import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
@@ -52,18 +43,16 @@ public class MswmedUI extends UI {
 		
         CustomLayout sample = new CustomLayout("loginPanel");
         panel.setContent(sample);
-        // Create components and bind them to the location tags
-        // in the custom layout.
-        final TextField username = new TextField("Username");
-        username.setWidth("250");
+        final TextField username = new TextField("U¿ytkownik");
+        username.setWidth("405");
         username.setRequired(true);
-        username.setRequiredError("Pole nie moze byæ puste");
+        username.setRequiredError("Pole nie mo¿e byæ puste");
         sample.addComponent(username, "username");
 
-        final PasswordField password = new PasswordField("Password");
-        password.setWidth("250");
+        final PasswordField password = new PasswordField("Has³o");
         password.setRequired(true);
-        password.setRequiredError("Pole nie moze byæ puste");
+        password.setRequiredError("Pole nie mo¿e byæ puste");
+        password.setWidth("405");
         sample.addComponent(password, "password");
 
         Button ok = new Button("Login");
