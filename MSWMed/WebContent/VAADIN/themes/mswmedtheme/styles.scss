@@ -2,7 +2,7 @@
 
 /* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
 /* The actual styles should be defined in mswmedtheme.scss */
-.v-app {background:#fff !important; background-image:url("layouts/images/background.jpg") !important;}
+.v-app {background:#fff !important; background-image:url("layouts/images/background.jpg") !important; background-position:center !important; background-repeat:no-repeat !important;}
 .mswmedtheme {
   @include mswmedtheme;
 }
