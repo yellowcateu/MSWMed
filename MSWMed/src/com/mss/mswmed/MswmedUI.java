@@ -18,17 +18,19 @@ import com.vaadin.ui.Alignment;
 @SuppressWarnings("serial")
 public class MswmedUI extends UI {
 	
+	private String version = "1.0.1";
+	
 	@Override
 	protected void init(VaadinRequest request) {
 		VerticalLayout layout = new VerticalLayout();
 		setContent(layout);
 		layout.setSizeFull();
 		
-		MSWMedLoginForm lf = new MSWMedLoginForm();
+		MSWMedLoginForm lf = new MSWMedLoginForm(version);
 		Panel sample = lf.getPanel();
 		
 		layout.addComponent(sample);
         layout.setComponentAlignment(sample, Alignment.MIDDLE_CENTER);
 	}
-	
+		
 }
